@@ -18,4 +18,12 @@ Vue.createApp({
     },
 }).mount('#app');
 
-
+//Toast
+const toastTrigger = document.getElementById('hintBtn')
+const toastLiveExample = document.getElementById('hint')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', () => {
+    const toast = new bootstrap.Toast(toastLiveExample)
+    toast.show()
+  })
+}
