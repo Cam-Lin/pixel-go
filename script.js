@@ -20,7 +20,6 @@ if (toastTrigger) {
   })
 }
 
-let gridSize = 16;
 
 $('document').ready(function(){
     //BW select
@@ -34,6 +33,7 @@ $('document').ready(function(){
     });
 
     //Drawing grid
+    let gridSize = 16; //Default size loading the page
     function createGrid() {
         for(let i = 1; i <= gridSize; i++) {
             $('#drawing-zone').append('<div></div>');
@@ -43,19 +43,30 @@ $('document').ready(function(){
             .addClass('d-flex')
             .addClass('flex-nowrap')
             .attr('id', `drawing-row-${i}`);
-            console.log(`row ${i} created`)
         }
         for(let i = 1; i <= gridSize; i++) {
             for(let j = 1; j <= gridSize; j++){
                 $(`#drawing-row-${i}`).append('<div></div>');
-                $(`#drawing-row-${i} div:nth-child(${j})`).addClass('col').addClass(`draw-square-16`);
+                $(`#drawing-row-${i} div:nth-child(${j})`).addClass('col').addClass(`draw-square`).addClass(`scaled-${gridSize}`);
             }
         }
-
     }
 
+    //Grid size change
+    $('#btn-radio-16').click(function(){
+        console.log(gridSize)
+        $(`#drawing-zone`).empty();
+        gridSize = 16;
+        createGrid();
+    });
+    $('#btn-radio-24').click(function(){
+        console.log(gridSize)
+        $(`#drawing-zone`).empty();
+        gridSize = 24;
+        createGrid();
+    });
 
-
+    //Initial grid load
     createGrid();
 });
 
