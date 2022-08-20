@@ -49,13 +49,11 @@
                     <div class="btn-group my-4" role="group" aria-label="Size radio toggle button group">
                         <input type="radio" class="btn-check" name="size" id="btn-radio-16" autocomplete="off" checked>
                         <label class="btn btn-outline-dark" for="btn-radio-16">16x16</label>
-                        <input type="radio" class="btn-check" name="size" id="btn-radio-32" autocomplete="off">
-                        <label class="btn btn-outline-dark" for="btn-radio-32">32x32</label>
-                        <input type="radio" class="btn-check" name="size" id="btn-radio-64" autocomplete="off">
-                        <label class="btn btn-outline-dark" for="btn-radio-64">64x64</label>
+                        <input type="radio" class="btn-check" name="size" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="btn-radio-24" id="btn-radio-24">24x24</label>
                     </div>
                     <div class="my-2">
-                        <button type="button" class="btn btn-outline-secondary" id="hintBtn">Want a hint?</button>
+                        <button type="button" class="btn btn-outline-secondary mb-4" id="hintBtn">Want a hint?</button>
                         <div class="toast-container position-fixed top-0 end-0 p-3">
                         <div id="hint" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
@@ -70,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center" id="drawing-zone">
+                <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center overflow-visible" id="drawing-zone">
                 </div>
             </div>
             <div class="row my-3" id="examples">
@@ -134,12 +132,11 @@
             </div>
         </div>
     </main>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 px-5 mt-4 border-top bg-dark">
+    <footer class="d-flex justify-content-between align-items-center py-2 px-5 mt-4  bg-dark">
         <div class="col-md-4 d-flex align-items-center">
           <span class="text-muted"> <i class="bi bi-gender-trans mx-1" style="font-size: 12px"></i>
             <small class="text-secondary">Cam Acuna - 2022</small> </span>
         </div>
-    
         <div class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <a href="https://github.com/Cam-Lin/pixel-go" target="_blank">
                 <i class="bi bi-github mx-2" style="color:darkgray"></i>
