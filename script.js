@@ -11,7 +11,6 @@ colorPicker.on('color:change', function(color) {
 });
 
 //Toast
-
 let hintList = ['Go to Adobe Color to find color palettes', 'Start with something simple', 'Start with the outline and add color later', 'Copy designs you like to learn how they work'];
 
 const toastTrigger = document.getElementById('hintBtn');
@@ -39,8 +38,6 @@ $('document').ready(function(){
     //Drawing grid
     let gridSize = 16; //Default size loading the page
     let idArr = []; //Ids to be passed on to Painting jQuery selector later
-    let idStr = null;
-
     function createGrid() {
         for(let i = 1; i <= gridSize; i++) {
             $('#drawing-zone').append('<div></div>');
