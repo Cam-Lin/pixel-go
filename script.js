@@ -37,7 +37,7 @@ $('document').ready(function(){
 
     //Drawing grid
     let gridSize = 16; //Default size loading the page
-    let idArr = []; //Ids to be passed on to Painting jQuery selector later
+    let idArr = []; //Ids to be passed on to Painting section later
     function createGrid() {
         for(let i = 1; i <= gridSize; i++) {
             $('#drawing-zone').append('<div></div>');
@@ -55,19 +55,29 @@ $('document').ready(function(){
                 idArr.push(`#draw-square-${i}-${j}`);
             }
         }
-        let idStr = idArr.join(', ');
-
+        
         //Paint
+        let idStr = idArr.join(', ');
+        let mouseIsDown = false;
+
+        $(idStr).on('mouseup', function(){
+            mouseIsDown = false;
+            console.log(mouseIsDown)
+        })
+
         $(idStr).on('mousedown', function(){
             console.log('test-click');
+            mouseIsDown = true;
             $(this).css('background', `${userColor}`);
+            console.log(mouseIsDown)
         });
-
+        
         $(idStr).on('mouseover', function(){
-            console.log('test-click');
-            $(this).css('background', `${userColor}`);
+            if (mouseIsDown == true) {
+                $(this).css('background', `${userColor}`);
+            }
         });
-
+    
         //Clear
         $('#clear-btn').click(() =>{
             $(idStr).css('background', '#ffffff')
@@ -90,7 +100,6 @@ $('document').ready(function(){
     //Initial grid
     $(`#drawing-zone`).addClass('animate__animated').addClass('animate__fadeIn');
     createGrid();
- 
 });
 
 
