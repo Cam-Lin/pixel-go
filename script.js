@@ -51,7 +51,14 @@ $('document').ready(function(){
         for(let i = 1; i <= gridSize; i++) {
             for(let j = 1; j <= gridSize; j++){
                 $(`#drawing-row-${i}`).append('<div></div>');
-                $(`#drawing-row-${i} div:nth-child(${j})`).addClass('col').addClass(`draw-square`).addClass(`scaled-${gridSize}`).attr('id', `draw-square-${i}-${j}`);
+                $(`#drawing-row-${i} div:nth-child(${j})`)
+                .addClass('col')
+                .addClass(`draw-square`)
+                .addClass(`scaled-${gridSize}`)
+                .addClass('animate__animated')
+                .addClass('animate__fadeIn')
+                .addClass('animate__slow')
+                .attr('id', `draw-square-${i}-${j}`);
                 idArr.push(`#draw-square-${i}-${j}`);
             }
         }
@@ -101,6 +108,3 @@ $('document').ready(function(){
     $(`#drawing-zone`).addClass('animate__animated').addClass('animate__fadeIn');
     createGrid();
 });
-
-
-
