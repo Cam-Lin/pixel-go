@@ -24,6 +24,10 @@
     margin-bottom: -10.5px;
 }
 
+footer {
+    margin-right: -12px;
+}
+
 @media only screen and (min-width: 992px) {
     .scaled-16 {
         transform: scale(1.3);
