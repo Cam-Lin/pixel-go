@@ -36,8 +36,8 @@ $('document').ready(function(){
     });
 
     //Drawing grid
-    let gridSize = 16; //Default size loading the page
-    let idArr = []; //Ids to be passed on to Painting section later
+    let gridSize = 16; //Default loading size
+    let idArr = []; //Ids to be passed to the Paint section later
     function createGrid() {
         for(let i = 1; i <= gridSize; i++) {
             $('#drawing-zone').append('<div></div>');
@@ -84,12 +84,23 @@ $('document').ready(function(){
                 $(this).css('background', `${userColor}`);
             }
         });
-    
+
         //Clear
         $('#clear-btn').click(() =>{
             $(idStr).css('background', '#ffffff')
         });
     }
+
+     //Download
+    $('#download-btn').on('mousedown', function(){
+        $( ".draw-square" ).css( "border", "none" )
+        htmlToImage.toPng(document.getElementById('drawing-container')).then(function (dataUrl) {
+            window.saveAs(dataUrl, 'my-pixel-go.jpeg');
+            });
+    });
+    $('#download-btn').on('mouseup', function(){
+        $( ".draw-square" ).css( "border", "1px dotted black" )
+    });
 
     //Grid size change
     $('#btn-radio-16').click(function(){
@@ -101,7 +112,6 @@ $('document').ready(function(){
         $(`#drawing-zone`).empty();
         gridSize = 24;
         createGrid();
-
     });
 
     //Initial grid
